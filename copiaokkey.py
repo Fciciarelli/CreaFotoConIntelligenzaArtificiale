@@ -48,9 +48,8 @@ def tensor_to_image(tensor):
   return PIL.Image.fromarray(tensor)
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
-st.markdown("<center><h1 style='text-align: center; background-color: black;font-size:16px;'><bold style='color:green;'>INTELLIGENZA<bold style='color:white;'>ARTIFICIALE<bold style='color:red;'>ITALIA</bold></bold></bold></h1>", unsafe_allow_html=True)
-st.subheader('Usa la nostra Intelligenza Artificiale demo per toccare con mano di cosa può essere capace la nostra tecnologia !')
-st.text('\n\nUtilizza la barra laterale per caricare la tua foto e scegliere uno stile tra quelli demo da applicare')
+st.markdown("<center><h1 style='text-align: center; background-color: black;font-size:16px;'><bold style='color:green;'>INTELLIGENZA<bold style='color:white;'>ARTIFICIALE<bold style='color:red;'>ITALIA</bold></bold></bold></h1><br><h2>Usa la nostra Intelligenza Artificiale demo per toccare con mano di cosa può essere capace la nostra tecnologia !</h2>", unsafe_allow_html=True)
+st.write('\n\nUtilizza la barra laterale per caricare la tua foto e scegliere uno stile tra quelli demo da applicare')
 
 st.sidebar.write('\n\n1) Selezionare la foto su cui applicare lo stile')
 selected_option = st.sidebar.file_uploader("Carica la tua immagine",type=["png","jpg","jpeg"],accept_multiple_files=False)
