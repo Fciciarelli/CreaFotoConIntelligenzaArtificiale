@@ -48,38 +48,39 @@ def tensor_to_image(tensor):
   return PIL.Image.fromarray(tensor)
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
-st.markdown("<h1 style='text-align: center; background-color: black;font-size:16px;'><bold style='color:green;'>INTELLIGENZA<bold style='color:white;'>ARTIFICIALE<bold style='color:red;'>ITALIA</bold></bold></bold></h1>", unsafe_allow_html=True)
+st.markdown("<center><h1 style='text-align: center; background-color: black;font-size:16px;'><bold style='color:green;'>INTELLIGENZA<bold style='color:white;'>ARTIFICIALE<bold style='color:red;'>ITALIA</bold></bold></bold></h1>", unsafe_allow_html=True)
 st.subheader('Usa la nostra Intelligenza Artificiale demo per toccare con mano di cosa può essere capace la nostra tecnologia !')
+st.text('\n\nUtilizza la barra laterale per caricare la tua foto e scegliere uno stile tra quelli demo da applicare')
 
-st.subheader('\n\n1) Selezionare la foto su cui applicare lo stile')
-selected_option = st.file_uploader("Carica la tua immagine",type=["png","jpg","jpeg"],accept_multiple_files=False)
+st.sidebar.text('\n\n1) Selezionare la foto su cui applicare lo stile')
+selected_option = st.sidebar.file_uploader("Carica la tua immagine",type=["png","jpg","jpeg"],accept_multiple_files=False)
 
 if (selected_option is not None) :
-	st.write("Foto caricata con successo...")
+	st.sidebar.write("Foto caricata con successo...")
 	with open(os.path.join(MYDIR,selected_option.name),"wb") as f:
 		f.write(selected_option.getbuffer())
 	content_path = MYDIR + selected_option.name
 	content_image = load_img(content_path)
 	image = Image.open(selected_option)
 	img_array = np.array(image)
-	st.image(image)
+	st.sidebar.image(image)
 
-st.subheader('\n\n2) Selezionare la foto da cui copiare lo stile')
-selected_option2 = st.selectbox("Scegli lo stile di un Pittore famoso che vuoi applicare alla tua foto",('Van Gogh', 'Escher', 'Joan Mirò'))
+st.sidebar.text('\n\n2) Selezionare la foto da cui copiare lo stile')
+selected_option2 = st.sidebar.selectbox("Scegli lo stile di un Pittore famoso che vuoi applicare alla tua foto",('Van Gogh', 'Escher', 'Joan Mirò'))
 
 if (selected_option2 is not None) :		
 	st.write("Foto caricata con successo...")
 	style_path = os.path.dirname(__file__) +"/" + selected_option2 + ".jpg"
 	style_image = load_img(style_path)
 	img_array2 = np.array(style_image)
-	st.image(img_array2)
+	st.sidebar.image(img_array2)
 
-if(st.checkbox('Impostazioni immagine')):
-	st.text('Utilizza le slide per modificare la \nfoto finale.\nDopo aver cambiato i valori di Default\nimpostati su 1,\npremi il pulsante per ricreare la foto')
-	luminosita = st.slider('Seleziona la Luminosità', 0.3, 1.7, 1.0,0.01, format="%.2f")
-	contrasto = st.slider('Seleziona il Contrasto', 0.3, 1.7, 1.0,0.01, format="%.2f")
-	nitidezza = st.slider('Seleziona la Nitedezza',  0.3, 1.7, 1.0,0.01, format="%.2f")
-	colore = st.slider('Seleziona il bilanciamento dei colori',  0.3, 1.7, 1.0,0.01, format="%.2f")
+if(st.sidebar.checkbox('Impostazioni immagine')):
+	st.sidebar.text('Utilizza le slide per modificare la \nfoto finale.\nDopo aver cambiato i valori di Default\nimpostati su 1,\npremi il pulsante per ricreare la foto')
+	luminosita = st.sidebar.slider('Seleziona la Luminosità', 0.3, 1.7, 1.0,0.01, format="%.2f")
+	contrasto = st.sidebar.slider('Seleziona il Contrasto', 0.3, 1.7, 1.0,0.01, format="%.2f")
+	nitidezza = st.sidebar.slider('Seleziona la Nitedezza',  0.3, 1.7, 1.0,0.01, format="%.2f")
+	colore = st.sidebar.slider('Seleziona il bilanciamento dei colori',  0.3, 1.7, 1.0,0.01, format="%.2f")
 else:
 	luminosita =1
 	contrasto=1
@@ -90,7 +91,7 @@ else:
 st.subheader('\n\n')
 viewImg = st.image(imgOk)
 c= False
-b = st.button('Procedi con la Creazione della Nuova Foto')
+b = st.sidebar.button('Procedi con la Creazione della Nuova Foto')
 if(b):
    stato = st.info("Attendi il caricamento, potrebbero volerci fino a 2 minuti, grazie")
    import tensorflow_hub as hub
