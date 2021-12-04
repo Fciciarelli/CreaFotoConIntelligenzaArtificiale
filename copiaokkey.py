@@ -52,7 +52,7 @@ st.markdown("<center><h1 style='text-align: center; background-color: black;font
 st.subheader('Usa la nostra Intelligenza Artificiale demo per toccare con mano di cosa può essere capace la nostra tecnologia !')
 st.text('\n\nUtilizza la barra laterale per caricare la tua foto e scegliere uno stile tra quelli demo da applicare')
 
-st.sidebar.text('\n\n1) Selezionare la foto su cui applicare lo stile')
+st.sidebar.write('\n\n1) Selezionare la foto su cui applicare lo stile')
 selected_option = st.sidebar.file_uploader("Carica la tua immagine",type=["png","jpg","jpeg"],accept_multiple_files=False)
 
 if (selected_option is not None) :
@@ -65,7 +65,7 @@ if (selected_option is not None) :
 	img_array = np.array(image)
 	st.sidebar.image(image)
 
-st.sidebar.text('\n\n2) Selezionare la foto da cui copiare lo stile')
+st.sidebar.write('\n\n2) Selezionare la foto da cui copiare lo stile')
 selected_option2 = st.sidebar.selectbox("Scegli lo stile di un Pittore famoso che vuoi applicare alla tua foto",('Van Gogh', 'Escher', 'Joan Mirò'))
 
 if (selected_option2 is not None) :		
