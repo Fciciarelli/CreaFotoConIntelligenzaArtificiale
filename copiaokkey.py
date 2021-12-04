@@ -88,7 +88,7 @@ else:
 
 
 st.subheader('\n\n')
-
+viewImg = image(imgOk)
 c= False
 b = st.button('Procedi con la Creazione della Nuova Foto')
 if(b):
