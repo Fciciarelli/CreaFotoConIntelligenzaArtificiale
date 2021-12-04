@@ -86,7 +86,7 @@ else:
 	nitidezza=1
 	colore=1
 
-viewImg= st.image(imgOk)
+viewImg= imgOk
 
 st.subheader('\n\n')
 
