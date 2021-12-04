@@ -65,7 +65,7 @@ if (selected_option is not None) :
 	st.sidebar.image(image)
 
 st.sidebar.write('\n\n2) Selezionare la foto da cui copiare lo stile')
-selected_option2 = st.sidebar.selectbox("Scegli lo stile di un Pittore famoso che vuoi applicare alla tua foto",('Van Gogh', 'Escher', 'Joan Mirò'))
+selected_option2 = st.sidebar.selectbox("Scegli lo stile di un Pittore famoso che vuoi applicare alla tua foto",('Van Gogh', 'Escher', 'Joan Mirò', 'style_2'))
 
 if (selected_option2 is not None) :		
 	st.sidebar.write("Foto caricata con successo...")
